@@ -4,8 +4,10 @@ const AddMovie = ({handleMovie}) => {
     const [show, setShow] = useState(false);
     const [name,setName] =useState("");
     const [image,setImage] =useState("");
+    const [year,setYear] =useState("");
     const [rating,setRating] =useState(0);
     const [description,setDescription] =useState("");
+    const [trailer,setTrailer] =useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -33,6 +35,10 @@ const AddMovie = ({handleMovie}) => {
     <Form.Control type="text" placeholder="Image" onChange={(e)=>setImage(e.target.value)} />
   </Form.Group>
   <Form.Group className="mb-3" >
+    <Form.Label>Year</Form.Label>
+    <Form.Control type="text" placeholder="Year" onChange={(e)=>setYear(e.target.value)} />
+  </Form.Group>
+  <Form.Group className="mb-3" >
     <Form.Label>Rating</Form.Label>
     <Form.Control type="number" placeholder="Rating" onChange={(e)=>setRating(e.target.value)} />
   </Form.Group>
@@ -40,13 +46,17 @@ const AddMovie = ({handleMovie}) => {
     <Form.Label>Description</Form.Label>
     <Form.Control type="text" placeholder="Description" onChange={(e)=>setDescription(e.target.value)} />
   </Form.Group>
+  <Form.Group className="mb-3" >
+    <Form.Label>Movie Trailer</Form.Label>
+    <Form.Control type="text" placeholder="Enter name..." onChange={(e)=>setTrailer(e.target.value)} />
+  </Form.Group>
 </Form>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>{handleMovie({id:Math.random(),name,image,rating,description});handleClose()} } >
+            <Button variant="primary" onClick={()=>{handleMovie({id:Math.random(),name,image,rating,description,year,id:Math.random(),trailer});handleClose()} } >
               Save Changes
             </Button>
           </Modal.Footer>
